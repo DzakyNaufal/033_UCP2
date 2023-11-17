@@ -2,12 +2,15 @@ package com.example.exercise2
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.selection.selectable
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.OutlinedTextField
+import androidx.compose.material3.RadioButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
@@ -24,11 +27,13 @@ import androidx.compose.ui.unit.dp
 @Composable
 fun HalamanSatu(
     onSubmitButtonClicked: (MutableList<String>) -> Unit,
+    onSelectionChanged: (String) -> Unit,
 ){
     var nama by rememberSaveable { mutableStateOf("") }
     var nim by rememberSaveable { mutableStateOf("") }
     var konsentrasi by rememberSaveable { mutableStateOf("") }
     var judul by remember { mutableStateOf("") }
+    var dospem1 by remember { mutableStateOf("")}
     var listData: MutableList<String> = mutableListOf(nama,nim,konsentrasi,judul)
 
     Column (
@@ -56,9 +61,26 @@ fun HalamanSatu(
             onValueChange = { judul = it },
             label = { Text(text = "Judul Skripsi") }
         )
-        Spacer(modifier = Modifier.padding(16.dp))
+
+        Spacer(
+            modifier = Modifier.padding(16.dp)
+        )
+        Row (modifier = Modifier.selectable(selected = dospem1 == item,
+            onClick = {
+                dospem1 = item
+                onSelectionChanged(item)
+            }
+        ),
+            verticalAlignment = Alignment.CenterVertically){
+            RadioButton(selected = dospem1 == item,
+                onClick = {
+                    dospem1 = item
+                    onSelectionChanged(item)}
+            )
+            Text(item)
         Button(onClick = { onSubmitButtonClicked(listData) }) {
-            Text(text = stringResource(id = R.string.btn_submit))
+            Text(text = stringResource(id = R.string.btn_submit)
+            )
         }
     }
 }
