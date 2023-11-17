@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Exercise2</string>
+    <string name="btn_next">Next</string>
+    <string name="btn_submit">Submit</string>
+    <string name="btn_back">Back</string>
+    <string name="nama">Nama</string>
+    <string name="nim">Nim</string>
+    <string name="konsentrasi">Konsentrasi</string>
+    <string name="judul_skripsi">Judul Skripsi</string>
+    <string name="dosen">Dosen</string>
+    <string name="dzaky_naufal">Dzaky Naufal</string>
+    <string name="alif_nur">Alif Nue</string>
+    <string name="muh_yoga">Muh Yoga</string>
+    <string name="muh_fadhila">Muh Fadhila</string>
+    <string name="muh_fahri">Muh Fahri</string>
+    <string name="bagus_ahlul">Bagus Ahlul</string>
+</resources>
